@@ -348,7 +348,6 @@ def LoadSampler():
     return CaptionSampler(args)
 
 class Sampler(object):
-    # 构造函数里加载模型，比如 tensorflow 的 graph, sess 等
     def __init__(self):
         self.sampler = LoadSampler()
 
