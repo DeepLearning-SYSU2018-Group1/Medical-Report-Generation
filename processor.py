@@ -347,29 +347,6 @@ def LoadSampler():
 
     return CaptionSampler(args)
 
-class DemoModel(object):
-    # 构造函数里加载模型，比如 tensorflow 的 graph, sess 等
-    def __init__(self):
-        self.graph = None
-        self.sess = None
-
-
-    # 需要对外提供一个 API，可以直接拿到你们的结果
-    def sample(self, *params):
-        # 业务逻辑略...
-        sentenceLength = 6
-        heatmapImageUrls = []
-        imageName = params[0].split('.')[0]
-        imageExtension = params[0].split('.')[1]
-        for i in range(sentenceLength):
-            heatmapImageUrls.append("http://172.18.160.106:8080/image/" + imageName + "/" + str(i) + '.' + imageExtension)
-
-        return dict(
-            captions = "the heart is normal in size.",
-            heatmapImageUrls = heatmapImageUrls
-            # params = params
-        )
-
 class Sampler(object):
     # 构造函数里加载模型，比如 tensorflow 的 graph, sess 等
     def __init__(self):
@@ -392,11 +369,9 @@ class Sampler(object):
         return dict(
             captions = captions,
             heatmapImageUrls = heatmapImageUrls
-            # params = params
         )
 
 
 print("生成 Model Sampler 实例.................")
 model_sampler = Sampler()
-# model_sampler = DemoModel()
 print("Model Sampler 实例生成完成...............")
