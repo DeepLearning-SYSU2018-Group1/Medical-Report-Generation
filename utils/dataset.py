@@ -35,7 +35,7 @@ class ChestXrayDataSet(Dataset):
                 image_name = items[0]
                 label = items[1:]
                 label = [int(i) for i in label]
-                image_name = '{}.png'.format(image_name)
+                image_name = '{}'.format(image_name)
                 filename_list.append(image_name)
                 labels.append(label)
         return filename_list, labels

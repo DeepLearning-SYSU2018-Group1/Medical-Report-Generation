@@ -15,7 +15,6 @@ class JsonReader(object):
 
     def __getitem__(self, item):
         return self.data[item]
-        # return self.data[self.keys[item]]
 
     def __len__(self):
         return len(self.data)
@@ -26,8 +25,9 @@ class Vocabulary(object):
         self.word2idx = {}
         self.id2word = {}
         self.idx = 0
-        self.add_word('<pad>')
+        self.add_word('')
         self.add_word('<end>')
+        self.add_word('<pad>')
         self.add_word('<start>')
         self.add_word('<unk>')
 
@@ -75,6 +75,6 @@ def main(json_file, threshold, vocab_path):
 
 
 if __name__ == '__main__':
-    main(json_file='../data/new_data/debugging_captions.json',
-         threshold=0,
-         vocab_path='../data/new_data/debug_vocab.pkl')
+    main(json_file='../data/new_data/captions.json',
+         threshold=15,
+         vocab_path='../data/new_data/vocab.pkl')
